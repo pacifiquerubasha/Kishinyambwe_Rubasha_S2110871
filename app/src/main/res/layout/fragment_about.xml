@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorPrimaryDark"
+
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <TextView
+            android:id="@+id/appNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About"
+            android:textSize="24sp"
+            android:textColor="?attr/colorControlHighlight"
+            android:layout_gravity="start"
+            android:paddingLeft="16dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S2110871"
+            android:textSize="10sp"
+            android:layout_gravity="end"
+            android:layout_marginRight="10dp"
+            />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:id="@+id/sec1_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sec1_title"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textColor="?attr/colorControlHighlight"
+                />
+
+            <TextView
+                android:id="@+id/sec1_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sec1_content"
+                android:padding="8dp"
+                android:textColor="?attr/colorControlNormal"/>
+
+            <!-- Section 2 -->
+            <TextView
+                android:id="@+id/sec2_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sec2_title"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textColor="?attr/colorControlHighlight"/>
+
+            <TextView
+                android:id="@+id/sec2_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sec2_content"
+                android:padding="8dp"
+                android:textColor="?attr/colorControlNormal"/>
+
+            <TextView
+                android:id="@+id/sec3_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sec3_title"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textColor="?attr/colorControlHighlight"/>
+
+            <TextView
+                android:id="@+id/sec3_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sec3_content"
+                android:padding="8dp"
+                android:textColor="?attr/colorControlNormal"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Copyright 2024"
+                android:padding="8dp"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:textColor="?attr/colorControlNormal"/>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>
+
+    <!--    Student Name: Pacifique Kishinyambwe RUBASHA-->
+    <!--    Student ID: S2110871-->

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:background="@drawable/location_bg"
+
+    >
+
+    <!-- Left side: Temperature, Weather, Location -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/temperatureTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Temperature"
+            android:textSize="20dp"
+            android:textColor="?attr/colorControlHighlight"/>
+
+        <TextView
+            android:id="@+id/weatherTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:text="Weather"
+            android:textColor="?attr/colorControlHighlight"/>
+
+        <TextView
+            android:id="@+id/locationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Location"
+            android:textColor="?attr/colorControlHighlight"/>
+
+    </LinearLayout>
+
+    <!-- Right side: Image of weather -->
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/day_clear"
+        android:layout_gravity="center_vertical" />
+
+</LinearLayout>
+
+    <!--    Student Name: Pacifique Kishinyambwe RUBASHA-->
+    <!--    Student ID: S2110871-->

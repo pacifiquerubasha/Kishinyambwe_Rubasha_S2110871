@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorPrimaryDark"
+    android:paddingHorizontal="10dp"
+    android:focusableInTouchMode="true"
+    android:focusable="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/appNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GCU Weather"
+                android:textSize="24sp"
+                android:textColor="?attr/colorControlHighlight"
+                android:layout_gravity="start"
+                android:textStyle="" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S2110871"
+                android:textSize="10sp"
+                />
+
+        </LinearLayout>
+
+
+
+        <!-- Overflow Menu -->
+        <ImageView
+            android:id="@+id/ic_light_dark_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_brightness_7_24"
+            android:layout_gravity="end"
+            android:padding="8dp"
+            />
+
+        <ImageView
+            android:id="@+id/alarm_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_access_alarm_24"
+            android:layout_gravity="end"
+            android:padding="8dp"
+            />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Search and Location input -->
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:drawableStart="@drawable/search"
+        android:hint="Search campus"
+        android:drawablePadding="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:inputType="text"
+        android:textColorHint="?attr/colorControlHighlight"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+    <!-- List view for locations (Third section) -->
+<!--    <ListView-->
+<!--        android:id="@+id/listRss"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/searchEditText"-->
+<!--        android:divider="@null"-->
+<!--        android:dividerHeight="12dp" />-->
+
+    <GridView
+        android:id="@+id/listRss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchEditText"
+        android:numColumns="auto_fit"
+        android:columnWidth="100dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        />
+
+
+
+
+</RelativeLayout>
+
+    <!--    Student Name: Pacifique Kishinyambwe RUBASHA-->
+    <!--    Student ID: S2110871-->

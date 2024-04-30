@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp"
+    android:background="@drawable/forecast_bg"
+    android:id="@+id/forecast_day"
+    >
+
+    <TextView
+        android:id="@+id/dayTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sun"
+        android:textSize="16dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:textColor="?attr/colorControlHighlight"
+        />
+
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:src="@drawable/day_clear"
+        android:layout_gravity="center"
+
+        />
+
+    <TextView
+        android:id="@+id/temperatureTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:text="25C"
+        android:layout_gravity="center_vertical|end"
+        android:textAlignment="textEnd"
+        android:textColor="?attr/colorControlHighlight"
+        />
+
+
+</LinearLayout>
+
+    <!--    Student Name: Pacifique Kishinyambwe RUBASHA-->
+    <!--    Student ID: S2110871-->

@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorPrimaryDark"
+
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S2110871"
+            android:textSize="10sp"
+            android:layout_gravity="end"
+            android:layout_marginRight="10dp"
+            />
+
+        <!-- Overflow Menu -->
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/details_fragment_container"
+        android:layout_below="@id/toolbar"
+        >
+            <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:layout_weight="1"
+                android:paddingHorizontal="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detailsMainContainer"
+
+                >
+
+            <LinearLayout
+                android:id="@+id/textStack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/detailLocationName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mauritius"
+                    android:textSize="32sp"
+                    android:textColor="?attr/colorControlHighlight"
+                    android:textFontWeight="900"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/detailTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25°C"
+                    android:textSize="32sp"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <TextView
+                    android:id="@+id/detailWeather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Partly Cloudy"
+                    android:textSize="14sp"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <TextView
+                    android:id="@+id/detailDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fri 25°/26°"
+                    android:textSize="11sp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/blue"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/toggleContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/textStack"
+                android:background="@drawable/rounded_toggle"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="70dp"
+                >
+                <!-- Forecast Toggle -->
+                <TextView
+                    android:id="@+id/forecastToggle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Forecast"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:background="@drawable/selected_left_toggle_bg"
+                    android:paddingVertical="10dp"
+                    />
+
+                <!-- Air Quality Toggle -->
+                <TextView
+                    android:id="@+id/airQualityToggle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Air Quality"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:paddingVertical="10dp"
+                    />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/detailsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toggleContainer"
+                android:layout_centerHorizontal="true">
+
+                <!-- For Forecast Details -->
+                <LinearLayout
+                    android:id="@+id/forecastDetailsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/forecastImage"
+                        android:layout_width="250dp"
+                        android:layout_height="250dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/cloudy"
+
+                        />
+
+                    <!-- Linear layout horizontal with items spaced between -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Wind"
+                                android:textSize="14sp"
+                                android:textColor="?attr/colorControlHighlight"
+                                />
+
+                            <TextView
+                                android:id="@+id/detailWind"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="13 km/h"
+                                android:textSize="14sp"
+                                android:textColor="?attr/colorControlHighlight"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginHorizontal="50dp"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pressure"
+                                android:textSize="14sp"
+                                android:textColor="?attr/colorControlHighlight"/>
+
+                            <TextView
+                                android:id="@+id/detailPressure"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15%"
+                                android:textSize="14sp"
+                                android:textColor="?attr/colorControlHighlight"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Humidity"
+                                android:textSize="14sp"
+                                android:textColor="?attr/colorControlHighlight"/>
+
+                            <TextView
+                                android:id="@+id/detailHumidity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="96%"
+                                android:textSize="14sp"
+                                android:textColor="?attr/colorControlHighlight"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Add more stacked containers as needed -->
+                </LinearLayout>
+
+                <!-- For Air Quality Details -->
+                <LinearLayout
+                    android:id="@+id/airQualityDetailsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/airQualityImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/air" />
+
+                    <!-- Stacked Containers for Air Quality Details -->
+                    <!-- Example of a stack (Title + Value) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginTop="30dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Air Quality Index:"
+                            android:textSize="14sp"
+                            android:textColor="?attr/colorControlHighlight"/>
+
+                        <TextView
+                            android:id="@+id/detailAirQualityIndex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="80 (Moderate)"
+                            android:textSize="14sp"
+                            android:textColor="?attr/colorControlHighlight"/>
+                    </LinearLayout>
+
+                    <!-- Add more stacked containers as needed -->
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/detailMoreTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailsContainer"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+
+                >
+
+                <TextView
+                    android:id="@+id/forecastTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Today"
+                    android:textSize="18sp"
+                    android:textColor="?attr/colorControlHighlight"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    >
+                    <TextView
+                        android:id="@+id/viewForecastText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Forecast"
+                        android:textSize="14sp"
+                        android:textColor="?attr/colorControlHighlight"
+                        android:layout_marginEnd="10dp"
+                        />
+                    <ImageView
+                        android:id="@+id/forecastIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/right"
+                        android:layout_gravity="center"
+                        android:contentDescription="Forecast Icon"
+
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/detailMoreTemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/detailMoreTitle"
+                    android:paddingBottom="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="20dp"
+                        android:layout_weight="3"
+                        >
+
+                        <ImageView
+                            android:id="@+id/weatherIconMin"
+                            android:layout_width="70dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/temperature"
+                            android:layout_gravity="center_vertical" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:text="Min"
+                                android:textColor="?attr/colorControlHighlight"
+                                />
+
+                            <TextView
+                                android:id="@+id/temperatureMin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="25°C"
+                                android:textSize="20dp"
+                                android:textColor="?attr/colorControlHighlight"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="20dp"
+                        android:layout_weight="3"
+                        >
+
+                        <ImageView
+                            android:id="@+id/weatherIconMax"
+                            android:layout_width="70dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/temperature"
+                            android:layout_gravity="center_vertical" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:text="Max"
+                                android:textColor="?attr/colorControlHighlight"/>
+
+                            <TextView
+                                android:id="@+id/temperatureMax"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="25°C"
+                                android:textSize="20dp"
+                                android:textColor="?attr/colorControlHighlight"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/detailMoreTemp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:layout_weight="3"
+                    >
+
+                    <ImageView
+                        android:id="@+id/sunRiseIcon"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/sunny"
+                        android:layout_gravity="center_vertical" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12dp"
+                            android:text="Sunrise"
+                            android:textColor="?attr/colorControlHighlight"
+                            />
+
+                        <TextView
+                            android:id="@+id/sunrise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7AM"
+                            android:textSize="20dp"
+                            android:textColor="?attr/colorControlHighlight"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20dp"
+                    android:layout_weight="3"
+                    >
+
+                    <ImageView
+                        android:id="@+id/sunsetIcon"
+                        android:layout_width="70dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/sunny"
+                        android:layout_gravity="center_vertical" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12dp"
+                            android:text="Sunset"
+                            android:textColor="?attr/colorControlHighlight"/>
+
+                        <TextView
+                            android:id="@+id/sunset"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18PM"
+                            android:textSize="20dp"
+                            android:textColor="?attr/colorControlHighlight"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+    <!--    Student Name: Pacifique Kishinyambwe RUBASHA-->
+    <!--    Student ID: S2110871-->

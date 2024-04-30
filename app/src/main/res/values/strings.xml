@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GCU Weather</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="overflow_menu_desc">More</string>
+    <string name="sec1_title">About Weather App</string>
+    <string name="sec1_content">Welcome to Our Weather App, your go-to source for accurate and up-to-date weather information! Our app is designed to provide you with reliable forecasts, current weather conditions, and essential weather-related data for locations worldwide. (You can also add data source from BBC RSS Feeds)</string>
+
+    <string name="sec2_title">Key Features</string>
+    <string name="sec2_content">• Detailed 3-day weather forecasts\n• Current weather observations\n• Easy navigation between locations\n• Customization settings for update intervals and units</string>
+
+    <string name="sec3_title">Developer</string>
+    <string name="sec3_content">Our Weather App is developed by Pacifique Rubasha, a dev dedicated to delivering high-quality mobile applications for weather enthusiasts. We strive to continuously improve our app and provide the best user experience possible.</string>
+
+    <string name="sec4_title">Contact Us</string>
+    <string name="sec4_content">Have feedback or questions? We\'d love to hear from you! Contact us at p.kishinyambwe@alustudent.com.</string>
+    <string name="title_activity_onboarding">OnboardingActivity</string>
+
+    <string name="onboarding_text_1">Welcome to GCUWeather!</string>
+    <string name="onboarding_text_2">Get weather forecasts and real-time observations for all GCUniversity campuses worldwide. Stay informed with 3-day forecasts and latest updates.</string>
+    <string name="onboarding_text_3">Explore campus locations on the map and customize weather update schedules for timely notifications</string>
+    <string name="next">Next</string>
+    <string name="no_internet">No Internet Available</string>
+    <string name="retry">Retry</string>
+</resources>

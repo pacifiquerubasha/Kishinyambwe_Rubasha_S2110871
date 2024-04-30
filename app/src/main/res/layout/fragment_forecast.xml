@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorPrimaryDark"
+
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:id="@+id/appNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forecast"
+            android:textSize="26sp"
+            android:textColor="?attr/colorControlHighlight"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S2110871"
+            android:textSize="10sp"
+            android:layout_gravity="end"
+            android:layout_marginRight="10dp"
+            />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/detailsMainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_below="@id/toolbar"
+    >
+
+            <RelativeLayout
+        android:id="@+id/home_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:focusableInTouchMode="true"
+        android:focusable="true">
+
+
+        <TextView
+            android:id="@+id/forecastTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 days"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorControlHighlight"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp" />
+
+                <GridView
+                    android:id="@+id/forecastListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/forecastTitle"
+                    android:numColumns="auto_fit"
+                    android:columnWidth="100dp"
+                    android:horizontalSpacing="10dp"
+                    android:verticalSpacing="10dp"
+                    android:stretchMode="columnWidth"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:id="@+id/lastestObservationsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lastest Observations"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorControlHighlight"
+            android:layout_below="@id/forecastListView"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <LinearLayout
+            android:id="@+id/gridRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lastestObservationsTitle"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Temperature"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/temperature"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/temperatureMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Value 1"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UV Index"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/uvindex"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/uvIndex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moderate (5)"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visibility"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/visibility"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/visibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10km"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gridRow2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gridRow1"
+            android:layout_marginTop="30dp"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Air Quality"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/cloudcover"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/airQuality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Value 1"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Humidity"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/dew"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moderate (5)"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pressure"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/pressure"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10km"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gridRow3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gridRow2"
+            android:layout_marginTop="30dp"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wind Speed"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/cloudcover"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/windSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Value 1"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wind Direction"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/dew"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/windDirection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moderate (5)"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pollution"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/pressure"
+                    android:contentDescription="Icon 1"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <TextView
+                    android:id="@+id/pollution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10km"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="?attr/colorControlHighlight"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+    <!--    Student Name: Pacifique Kishinyambwe RUBASHA-->
+    <!--    Student ID: S2110871-->
