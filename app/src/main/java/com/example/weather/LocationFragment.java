@@ -69,7 +69,7 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap googleMap;
 
     SearchView searchView;
-    private Boolean isConnected;
+    private Boolean isConnected = true;
 
     public LocationFragment() {
         // Required empty public constructor

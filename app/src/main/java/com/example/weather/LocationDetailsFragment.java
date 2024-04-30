@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -86,6 +88,27 @@ public class LocationDetailsFragment extends Fragment {
     private TextView sunrise;
     private TextView sunset;
 
+    Button viewMoreBtn;
+    int currentIndex;
+
+
+    private final String[] locations = {
+            "Glasgow, GB",
+            "London, GB",
+            "New York, US",
+            "Oman, RU",
+            "Mauritius, MU",
+            "Bangladesh, BD",
+    };
+
+    private final String[] locationUrls = {
+            "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2648579",
+            "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2643743",
+            "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/5128581",
+            "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/287286",
+            "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/934154",
+            "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/1185241"
+    };
 
     public LocationDetailsFragment() {
         // Required empty public constructor
@@ -133,13 +156,16 @@ public class LocationDetailsFragment extends Fragment {
         progressBar = view.findViewById(R.id.progressBar);
         weatherDetails = new WeatherDetails();
 
-        ImageView backImageView = view.findViewById(R.id.back);
+        ImageButton backImageView = view.findViewById(R.id.back);
         backImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getActivity() != null) {
-                    getActivity().getSupportFragmentManager().popBackStack();
-                }
+                Fragment homeFragment = new HomeFragment();
+
+                FragmentManager fragmentManager = getParentFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.home_fragment_container, homeFragment)
+                        .commit();
             }
         });
 
@@ -172,38 +198,78 @@ public class LocationDetailsFragment extends Fragment {
             LocationItem selectedLocation = bundle.getParcelable("selectedLocation");
             locationUrl = selectedLocation.getLocationUrl();
             detailLocationName.setText(selectedLocation.getLocationName());
+
+            currentIndex = 0;
+            for (int i = 0; i < locations.length; i++) {
+                if (locations[i].equals(selectedLocation.getLocationName())) {
+                    currentIndex = i;
+                    break;
+                }
+            }
         }
 
         FetchWeatherDataTask task = new FetchWeatherDataTask();
         task.execute();
 
-        TextView viewForecastText = view.findViewById(R.id.viewForecastText);
-        //add click listener to view forecast text
+        Button viewForecastText = view.findViewById(R.id.viewForecastText);
+
         viewForecastText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewForecast();
+            }
+        });
 
-                LocationItem selectedItem = new LocationItem();
-                selectedItem.setLocationUrl(locationUrl);
-                selectedItem.setLocationName(detailLocationName.getText().toString());
+        viewMoreBtn = view.findViewById(R.id.viewMoreButton);
 
-                // Replace current fragment with Details Fragment and pass data
-                Fragment forecastFragment = new ForecastFragment();
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("selectedLocation", selectedItem);
-                forecastFragment.setArguments(bundle);
+        String nextLocation = locations[(currentIndex + 1) % locations.length];
+        viewMoreBtn.setText("View More for " + nextLocation);
 
-                FragmentManager fragmentManager = getParentFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.home_fragment_container, forecastFragment)
-                        .addToBackStack(null)
-                        .commit();
-
+        viewMoreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewMore();
             }
         });
 
 
+
         return view;
+    }
+
+    private void viewMore(){
+        LocationItem selectedItem = new LocationItem();
+        selectedItem.setLocationUrl(locationUrls[(currentIndex + 1) % locations.length]);
+        selectedItem.setLocationName(locations[(currentIndex + 1) % locations.length]);
+
+        // Replace current fragment with Details Fragment and pass data
+        Fragment locationDetailsFragment = new LocationDetailsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("selectedLocation", selectedItem);
+        locationDetailsFragment.setArguments(bundle);
+
+        FragmentManager fragmentManager = getParentFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.home_fragment_container, locationDetailsFragment)
+                .commit();
+    }
+
+    private void viewForecast(){
+        LocationItem selectedItem = new LocationItem();
+        selectedItem.setLocationUrl(locationUrl);
+        selectedItem.setLocationName(detailLocationName.getText().toString());
+
+        // Replace current fragment with Details Fragment and pass data
+        Fragment forecastFragment = new ForecastFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("selectedLocation", selectedItem);
+        forecastFragment.setArguments(bundle);
+
+        FragmentManager fragmentManager = getParentFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.home_fragment_container, forecastFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void toggleDetails(boolean showForecast) {
@@ -231,6 +297,7 @@ public class LocationDetailsFragment extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             try {
+                Log.d("Location URL==", locationUrl);
                 URL url = new URL(locationUrl);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("GET");
@@ -279,6 +346,10 @@ public class LocationDetailsFragment extends Fragment {
         }
 
         public int getIconResId(String weather) {
+            if (weather == null) {
+                return R.drawable.day_clear;
+            }
+
             int iconResId;
             if (weather.toLowerCase().contains("light rain")) {
                 iconResId = R.drawable.day_rain;
@@ -368,4 +439,6 @@ public class LocationDetailsFragment extends Fragment {
         }
 
     }
+
+
 }

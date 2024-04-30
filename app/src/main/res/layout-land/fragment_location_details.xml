@@ -349,14 +349,14 @@
                         android:id="@+id/viewForecastText"
                         android:layout_width="wrap_content"
                         android:layout_height="20dp"
-                        android:text="View Forecast"
+                        android:text="View Forecast >"
                         android:padding="2dp"
                         android:background="@android:color/transparent"
                         android:textColor="?attr/colorControlHighlight"
                         >
-
+                        
                     </Button>
-
+                    
                     <ImageView
                         android:id="@+id/forecastIcon"
                         android:layout_width="wrap_content"

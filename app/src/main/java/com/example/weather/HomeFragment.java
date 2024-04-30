@@ -373,7 +373,7 @@ public class HomeFragment extends Fragment {
     private void scheduleUpdate(int hour, int minute) {
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), UpdateReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         // Schedule the alarm for the selected time
         Calendar calendar = Calendar.getInstance();

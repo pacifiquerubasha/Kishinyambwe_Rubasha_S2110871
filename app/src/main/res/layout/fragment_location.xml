@@ -17,7 +17,6 @@
         app:iconifiedByDefault="false"
         app:queryHint="Search Location S2110871"
         app:queryBackground="@android:color/transparent"
-
         />
 
 
