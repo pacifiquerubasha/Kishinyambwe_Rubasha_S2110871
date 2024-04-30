@@ -208,12 +208,19 @@ public class HomeFragment extends Fragment {
         }
 
         toggleDarkMode = view.findViewById(R.id.ic_light_dark_toggle);
-        toggleDarkMode.setOnClickListener(v -> toggleDarkMode());
+        int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+            toggleDarkMode.setImageResource(R.drawable.baseline_brightness_7_24);
+        } else {
+            toggleDarkMode.setImageResource(R.drawable.baseline_bedtime_24);
+        }
+
+        toggleDarkMode.setOnClickListener(v -> toggleDarkMode(v));
 
         return view;
     }
 
-    private void toggleDarkMode() {
+    private void toggleDarkMode(View v) {
         // Check the current night mode
         int nightModeFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
@@ -221,12 +228,13 @@ public class HomeFragment extends Fragment {
             case Configuration.UI_MODE_NIGHT_YES:
                 Log.d("DarkMode", "Turning off dark mode");
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                toggleDarkMode.setImageResource(R.drawable.baseline_bedtime_24);
+                ((ImageView) v).setImageResource(R.drawable.baseline_bedtime_24);
+
                 break;
             case Configuration.UI_MODE_NIGHT_NO:
                 Log.d("DarkMode", "Turning on dark mode");
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                toggleDarkMode.setImageResource(R.drawable.baseline_brightness_7_24);
+                ((ImageView) v).setImageResource(R.drawable.baseline_brightness_7_24);
                 break;
         }
     }

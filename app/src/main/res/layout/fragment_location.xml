@@ -16,11 +16,9 @@
         android:elevation="5dp"
         app:iconifiedByDefault="false"
         app:queryHint="Search Location S2110871"
-        app:queryBackground="@android:color/transparent"
         />
 
 
-    <!-- TODO: Update blank fragment layout -->
     <fragment
         android:id="@+id/id_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
